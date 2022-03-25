@@ -1,0 +1,33 @@
+server:
+  port: 1234
+  
+spring:
+  application:
+    name: Zuul-Gateway-Service
+    
+zuul:
+  routes:
+    order:
+      path: /order/**
+      service-id: ORDER-SERVICE
+      url: http://localhost:8089/
+      strip-prefix: false
+    payment:
+      service-id: /payment/**
+      path: /payment/**
+      strip-prefix: false
+      url: http://localhost:9089/
+
+logging:
+  file:
+    name: D:\logs\ZuulAPP.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "*"

@@ -1,0 +1,15 @@
+server:
+  port: 9290
+
+spring:
+  application:
+    name: CLOUD-CONFIG-SERVER
+ 
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mohitpavanenubothu/SpringConfigServer.git
+          default-label: main
+          clone-on-start: true
